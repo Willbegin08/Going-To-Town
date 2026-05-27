@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css?family=Warnes|Abel");
+
+:root {
+    /* Main Colour Scheme */
+    --mainNeon: #9d4edd;
+    --mainLight: #00b4d8;
+    --mainDark: #0b0c10;
+    --secondaryLight: #ff006e;
+    --secondaryDark: #39ff14;
+    --accent: #ff7a00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+}
+
+h1 {
+    font-family: "Warnes", cursive;
+    font-weight: normal;
+    font-size: 4em;
+    line-height: 1.2em;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-shadow: -2px -2px 10px #fff, 2px 2px 10px #fff,
+    0px 0px 20px var(--mainNeon), 0px 0px 40px var(--mainNeon),
+    0px 0px 60px var(--mainNeon), 0px 0px 80px var(--mainNeon);
+}
+
+#cityCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.splashContainer {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: fadeIn 1.8s ease-in-out;
+}
+
+.gameTitle {
+    animation: neonPulse 1.5s infinite alternate;
+}
+
+.tagline {
+    margin-top: 12px;
+    font-size: 22px;
+    color: white;
+
+    animation: slideUp 1.8s ease-in-out;
+}
+
+.textContainer {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.town {
+    position: absolute;
+    bottom: 210px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.building {
+    width: 55px;
+    background: dimGray;
+    border: 2px solid grey;
+}
+
+.building::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, gold 2px, transparent 3px);
+    background-size: 18px 18px;
+
+    animation: windowFlicker 2s infinite alternate;
+}
+
+.tall {
+    height: 150px;
+}
+
+.medium {
+    height: 110px;
+}
+
+.small {
+    height: 80px;
+}
+
+.road {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    height: 110px;
+    background: black;
+    border-top: 5px solid lightGray;
+    border-bottom: 5px solid lightGray;
+    overflow: hidden;
+}
+
+.roadLine {
+    position: absolute;
+    top: 50%;
+    width: 200%;
+    height: 8px;
+    background: repeating-linear-gradient(
+            to right,
+            gold 0px,
+            gold 60px,
+            transparent 60px,
+            transparent 120px
+    );
+
+    animation: roadMove 1s linear infinite;
+}
+
+.car {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    width: 130px;
+    height: 55px;
+}
+
+.carBody {
+    position: absolute;
+    bottom: 12px;
+    width: 130px;
+    height: 40px;
+    background: red;
+    border-radius: 18px 18px 8px 8px;
+}
+
+.carWindow {
+    position: absolute;
+    top: 6px;
+    left: 45px;
+    width: 45px;
+    height: 20px;
+    background: lightblue;
+    border-radius: 8px 8px 2px 2px;
+}
+
+.wheel {
+    position: absolute;
+    bottom: 0;
+    width: 26px;
+    height: 26px;
+    background: darkgrey;
+    border: 4px solid #111827;
+    border-radius: 50%;
+
+    animation: wheelSpin 0.4s linear infinite;
+}
+
+.wheel-left {
+    left: 20px;
+}
+
+.wheel-right {
+    right: 20px;
+}
+
+.loadingBar {
+    position: absolute;
+    bottom: 35px;
+    width: 360px;
+    height: 18px;
+    border: 2px solid white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.loadingProgress {
+    height: 100%;
+    width: 0%;
+    background: var(--mainNeon);
+
+    animation: loading 6s linear forwards;
+}
+
+button {
+    position: absolute;
+    bottom: 25em;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--secondaryDark);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* CSS animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow: -2px -2px 10px #fff, 2px 2px 10px #fff,
+        0px 0px 20px var(--mainNeon), 0px 0px 40px var(--mainNeon),
+        0px 0px 60px var(--mainNeon), 0px 0px 80px var(--mainNeon);
+    }
+
+    50% {
+        text-shadow: -1px -1px 4px #fff, 1px 1px 4px #fff,
+        0px 0px 10px var(--mainNeon), 0px 0px 20px var(--mainNeon),
+        0px 0px 30px var(--mainNeon), 0px 0px 40px var(--mainNeon);
+    }
+    100% {
+        text-shadow: -2px -2px 10px #fff, 2px 2px 10px #fff,
+        0px 0px 20px var(--mainNeon), 0px 0px 40px var(--mainNeon),
+        0px 0px 60px var(--mainNeon), 0px 0px 80px var(--mainNeon);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes roadMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-120px);
+    }
+}
+
+@keyframes wheelSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes windowFlicker {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes loading {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
