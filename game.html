@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./styles/game.css" />
+  <title>Going To Town [Game]</title>
+</head>
+<body>
+<header class="neonBox">
+  <h1 class="neonHeader">Going To Town</h1>
+
+  <section id="playerInfo">
+    <p id="displayFirstName"></p>
+    <p id="displayLastName"></p>
+    <p id="displayUsername"></p>
+    <p id="displayPhone"></p>
+    <p id="displayCity"></p>
+    <p id="displayEmail"></p>
+    <p id="displayLastVisit"></p>
+    <p>
+      <span id="notUserText"></span>
+      <a href="#" id="changeCredentials">Change your credentials</a>
+    </p>
+  </section>
+</header>
+
+<main>
+  <form id="gameForm" class="neonBox">
+    <p>
+      <label for="roundAmount">Rounds (1-20):</label>
+      <input id="roundAmount" type="text" placeholder="Round Amount" />
+      <span id="roundsError" class="errorClass"></span>
+    </p>
+    <p>
+      <label for="confirm"></label>
+      <input id="confirm" type="button" value="Confirm" />
+    </p>
+  </form>
+  <section id="gameSection" class="hide neonBox">
+    <div id="gameStatus" data-label="Round Status">
+      <p>Round: <span id="currentRound"></span> / <span id="totalRounds"></span></p>
+      <div id="gameStatusBottom">
+        <p>Current Player: <span id="currentPlayer"></span></p>
+        <p>Rolls Remaining: <span id="rollsRemaining"></span></p>
+      </div>
+    </div>
+
+    <div id="scoreBoard" data-label="Scoreboard">
+      <p>Your Score: <span id="humanScore"></span></p>
+      <p>Computer Score: <span id="computerScore"></span></p>
+    </div>
+
+    <div id="diceArea" data-label="Dice">
+      <div id="diceDisplay">
+        <span class="die" id="die1"></span>
+        <span class="die" id="die2"></span>
+        <span class="die" id="die3"></span>
+      </div>
+      <div class="diceInfo">
+        <p>Last Roll: <span id="lastRoll"></span></p>
+        <p>Kept So Far: <span id="keptSoFar"></span></p>
+      </div>
+    </div>
+    <div id="gameControls" data-label="Controls">
+      <div class="btnRow">
+        <input type="button" id="rollBtn" value="Roll Dice" />
+        <input type="button" id="nextBtn" value="Next Turn" />
+        <input type="button" id="leaveBtn" value="Leave Game" />
+      </div>
+    </div>
+
+    <div id="gameMessage"></div>
+  </section>
+  <section id="gameEnd" class="hide neonBox">
+    <table id="resultsTable">
+      <thead>
+      <tr>
+        <th>Result</th>
+        <th>Player</th>
+        <th>Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Winner</td>
+        <td id="winnerName"></td>
+        <td id="winnerScore"></td>
+      </tr>
+      <tr>
+        <td>Loser</td>
+        <td id="loserName"></td>
+        <td id="loserScore"></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <section id="gameLeave" class="hide neonBox">
+    <p id="leaveMessage">Thanks for playing, <span id="leavePlayerName"></span>!</p>
+    <table id="leaveTable">
+      <thead>
+      <tr>
+        <th>Player</th>
+        <th>Score</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td id="leaveHumanName"></td>
+        <td id="leaveHumanScore"></td>
+      </tr>
+      <tr>
+        <td>Computer</td>
+        <td id="leaveComputerScore"></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Going To Town. All Rights Reserved.</p>
+</footer>
+<script src="./js/game.js"></script>
+<script src="./js/gametest.js"></script>
+</body>
+</html>

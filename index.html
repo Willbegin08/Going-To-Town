@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Going to Town - Splash Page</title>
+    <link rel="stylesheet" href="./styles/splash.css" />
+</head>
+<body>
+<canvas id="cityCanvas">
+    <p>Your browser sadly does not support the usage of a canvas</p>
+</canvas>
+
+<main class="splashContainer">
+    <div class="textContainer">
+        <h1 class="gameTitle">Going to Town</h1>
+        <p class="tagline">Roll dice & go to town</p>
+    </div>
+
+    <button id="skipButton">Skip Animation</button>
+
+    <section class="town">
+        <div class="building tall"></div>
+        <div class="building medium"></div>
+        <div class="building small"></div>
+        <div class="building tall"></div>
+        <div class="building medium"></div>
+    </section>
+
+    <section class="road">
+        <div class="roadLine"></div>
+
+        <div id="car" class="car">
+            <div class="carBody">
+                <div class="carWindow"></div>
+            </div>
+            <div class="wheel wheel-left"></div>
+            <div class="wheel wheel-right"></div>
+        </div>
+    </section>
+
+    <div class="loadingBar">
+        <div class="loadingProgress"></div>
+    </div>
+</main>
+
+<script src="./js/splash.js"></script>
+</body>
+</html>
