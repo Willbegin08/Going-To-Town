@@ -73,6 +73,7 @@ $("#form").validate({
     },
     submitHandler: function() {
         setValues();
+        form.submit();
     }
 });
 
